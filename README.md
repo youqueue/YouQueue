@@ -2,7 +2,7 @@
 
 ### App Description
 Allows users to collaboratively add songs from Apple Music to a single song queue. Users can vote to move songs
-around the queue and even vote to remove them. The Music will play out of the host, or "DJ", device.
+around the queue. The Music will play out of the host, or "DJ", device.
 
 ### App Idea Evaluation
 - Mobile: This app is necessary for mobile because it utilizes quick access to music through Apple music and
@@ -28,7 +28,6 @@ around the queue and even vote to remove them. The Music will play out of the ho
 2. User can search for songs
 3. User can add songs to the queue
 4. User can upvote/downvote songs to move them around the queue
-5. User can vote to remove a song
 
 ### User Stories (Optional)
 1. Host can manually adjust the voting threshold needed to remove a song
@@ -51,5 +50,52 @@ around the queue and even vote to remove them. The Music will play out of the ho
 
 ---
 
-### App Pitch Presentation
-// TODO: Add link to Pitch Presentation Deck
+## Schema 
+### Models
+#### Queue
+
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | queueId      | String   | unique id for the user queue (default field) |
+   | host        | Pointer to User| queue host |
+   | lat           | Double   | Latitude of Host |
+   | lon           | Double   | Longitude of Host |
+   | vote_threshold| Integer  | Number of downvotes before a song is removed |
+   | allow_duplicated| Boolean | Allow duplicate songs |
+   | restrict_location | Boolean | Restrict joining to a certain location |
+   | location_min | Double | location distance threshold in meters |
+   | createdAt     | DateTime | date when queue is created (default field) |
+
+
+#### Song
+   | Property      | Type     | Description |
+   | ------------- | -------- | ------------|
+   | songId        | String   | iTunes song ID |
+   | name          | String   | Song name |
+   | user          | Pointer to User | User who submitted song |
+   | votes         | Integer  | Number of votes |
+   | queue         | Pointer to Queue | Queue song belongs to |
+   | played        | Boolean  | Whether song has been played already |
+
+### Networking
+#### List of network requests by screen
+   - Party Queue Screen
+      - (Read/GET) Query all songs where Queue is current queue object
+         ```swift
+         let query = PFQuery(className:"Song")
+         query.whereKey("queue", equalTo: queue)
+         query.order(byDescending: "votes")
+         query.findObjectsInBackground { (songs: [PFObject]?, error: Error?) in
+            if let error = error { 
+               print(error.localizedDescription)
+            } else if let songs = songs {
+               print("Successfully retrieved \(songs.count) songs.")
+            }
+         }
+         ```
+      - (Create/POST) Create a new vote on a songs
+      - (Delete) Delete existing vote
+   - Search Song Screen
+      - (Create/POST) Submit a song to queue
+   - Join Party Screen
+      - (Read/GET) Query queue object
