@@ -24,16 +24,16 @@ around the queue. The Music will play out of the host, or "DJ", device.
 ---
 
 ### User Stories (Required)
-1. User can create a new queue or join one by a code
-2. User can search for songs
-3. User can add songs to the queue
-4. User can upvote/downvote songs to move them around the queue
+1. [ ] User can create a new queue or join one by a code
+2. [X] User can search for songs
+3. [ ] User can add songs to the queue
+4. [ ] User can upvote/downvote songs to move them around the queue
 
 ### User Stories (Optional)
-1. Host can manually adjust the voting threshold needed to remove a song
-2. Host has the power to instantly remove a song or move it around the queue
-3. Suggested queues will be pop up based on your location
-4. User can view who is in the group with them
+1. [ ] Host can manually adjust the voting threshold needed to remove a song
+2. [ ] Host has the power to instantly remove a song or move it around the queue
+3. [ ] Suggested queues will be pop up based on your location
+4. [ ] User can view who is in the group with them
 
 ---
 
