@@ -57,7 +57,6 @@ around the queue. The Music will play out of the host, or "DJ", device.
    | Property      | Type     | Description |
    | ------------- | -------- | ------------|
    | queueId      | String   | unique id for the user queue (default field) |
-   | host        | Pointer to User| queue host |
    | lat           | Double   | Latitude of Host |
    | lon           | Double   | Longitude of Host |
    | vote_threshold| Integer  | Number of downvotes before a song is removed |
@@ -72,7 +71,6 @@ around the queue. The Music will play out of the host, or "DJ", device.
    | ------------- | -------- | ------------|
    | songId        | String   | iTunes song ID |
    | name          | String   | Song name |
-   | user          | Pointer to User | User who submitted song |
    | votes         | Integer  | Number of votes |
    | queue         | Pointer to Queue | Queue song belongs to |
    | played        | Boolean  | Whether song has been played already |
