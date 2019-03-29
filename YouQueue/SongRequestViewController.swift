@@ -107,9 +107,9 @@ class SongRequestViewController: UITableViewController, UISearchBarDelegate {
         let song = songs[indexPath.row]
         let albumURL = song["artworkUrl100"] as! String
         
-        cell.songTitleLabel.text = song["trackName"] as! String
+        cell.songTitleLabel.text = (song["trackName"] as! String)
         cell.albumArt.af_setImage(withURL: URL(string: albumURL)!)
-        cell.artistName.text = song["artistName"] as! String
+        cell.artistName.text = (song["artistName"] as! String)
         
         return cell
     }
@@ -118,6 +118,7 @@ class SongRequestViewController: UITableViewController, UISearchBarDelegate {
         
         let song = Song()
         
+        song.id = UUID().uuidString
         song.songId = songs[indexPath.row]["trackId"] as! Int
         song.name = songs[indexPath.row]["trackName"] as! String
         song.artist = songs[indexPath.row]["artistName"] as! String
@@ -125,6 +126,8 @@ class SongRequestViewController: UITableViewController, UISearchBarDelegate {
         song.votes = 0
         song.queue = queue
         song.played = false
+        song.upvotes = [String]()
+        song.downvotes = [String]()
         
         song.saveInBackground() { (success, error) in
             if(success) {
@@ -135,7 +138,6 @@ class SongRequestViewController: UITableViewController, UISearchBarDelegate {
             }
         }
     }
-    
 
     /*
     // Override to support conditional editing of the table view.

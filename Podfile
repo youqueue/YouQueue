@@ -7,7 +7,6 @@ target 'YouQueue' do
 
   # Pods for YouQueue
   pod 'DeckTransition', '~> 2.0'
-  pod 'Dodo', '~> 12.0'
   pod 'ESTMusicIndicator'
   pod 'AlamofireImage'
   pod 'PMSuperButton'
@@ -15,4 +14,5 @@ target 'YouQueue' do
   pod 'Parse'
   pod 'ParseLiveQuery'
   pod 'SwiftVideoBackground', '~> 3.0'
+  pod "Panels"
 end

@@ -14,6 +14,8 @@ class SongCell: UITableViewCell {
     @IBOutlet weak var songTitleLabel: UILabel!
     @IBOutlet weak var albumArt: UIImageView!
     @IBOutlet weak var artistName: UILabel!
+    @IBOutlet weak var upvoteButton: UIButton!
+    @IBOutlet weak var downvoteButton: UIButton!
     
     var song: PFObject!
     
@@ -36,5 +38,4 @@ class SongCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

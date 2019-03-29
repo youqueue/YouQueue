@@ -25,7 +25,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     let songQuery = PFQuery(className: "Song")
     let queueQuery = PFQuery(className: "Queue")
-    var songs = [PFObject]()
+    var songs = [Song]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,8 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.delegate = self
         self.tableView.rowHeight = 87
         self.tableView.backgroundColor = .clear
+        self.tableView.showsVerticalScrollIndicator = false
+        self.tableView.showsHorizontalScrollIndicator = false
         
         self.navigationItem.title = host ? "Join Code: \(queue["code"]!)" : "Queue"
         
@@ -46,11 +48,20 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         
         subscribeToServer()
         fetchData()
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        self.songs.sort(by: { (a, b) -> Bool in
+            let songa = (a as! Song)
+            let songb = (b as! Song)
+            
+            let votesa = songa.upvotes.count - songa.downvotes.count
+            let votesb = songb.upvotes.count - songb.downvotes.count
+            
+            return votesa > votesb
+        })
         
         self.tableView.reloadData()
     }
@@ -63,7 +74,17 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             if let error = error {
                 print(error.localizedDescription)
             } else if let songs = songs {
-                self.songs = songs
+                self.songs = songs as! [Song]
+                self.songs.sort(by: { (a, b) -> Bool in
+                    let songa = (a as! Song)
+                    let songb = (b as! Song)
+                    
+                    let votesa = songa.upvotes.count - songa.downvotes.count
+                    let votesb = songb.upvotes.count - songb.downvotes.count
+                    
+                    return votesa > votesb
+                })
+                
                 self.tableView.reloadData()
                 // let range = NSMakeRange(0, self.tableView.numberOfSections)
                 // let sections = NSIndexSet(indexesIn: range)
@@ -83,15 +104,54 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         _ = songSubscription!.handleEvent({ (_, event) in
             switch event {
             case .created(let object):
-                self.songs.append(object)
+                self.songs.append(object as! Song)
                 // do stuff
                 DispatchQueue.main.async {
                     
-                    /*let range = NSMakeRange(0, self.tableView.numberOfSections)
-                    let sections = NSIndexSet(indexesIn: range)
-                    self.tableView.reloadSections(sections as IndexSet, with: .automatic)*/
+                    self.songs.sort(by: { (a, b) -> Bool in
+                        
+                        let votesa = a.upvotes.count - a.downvotes.count
+                        let votesb = b.upvotes.count - b.downvotes.count
+                        
+                        return votesa > votesb
+                    })
+                    
                     self.tableView.reloadData()
                 }
+                break
+            case .updated(let object):
+                DispatchQueue.main.async {
+                    let oldsongs = self.songs
+                    
+                    let newSong = object as! Song
+                    
+                    self.songs.filter({$0.id == newSong.id}).first?.upvotes = newSong.upvotes
+                    self.songs.filter({$0.id == newSong.id}).first?.downvotes = newSong.downvotes
+                    
+                    self.songs.sort(by: { (a, b) -> Bool in
+                        
+                        let votesa = a.upvotes.count - a.downvotes.count
+                        let votesb = b.upvotes.count - b.downvotes.count
+                        
+                        return votesa > votesb
+                    })
+                    
+                    self.tableView.beginUpdates()
+                    
+                    for i in 0...self.songs.count-1 {
+                        let newRow = self.songs.index(of: oldsongs[i])
+                        self.tableView.moveRow(at: IndexPath(item: 0, section: i), to: IndexPath(item: 0, section: newRow!))
+                    }
+                    
+                    self.tableView.endUpdates()
+                    
+                    /*
+                     let range = NSMakeRange(0, self.tableView.numberOfSections)
+                     let sections = NSIndexSet(indexesIn: range)
+                     self.tableView.reloadSections(sections as IndexSet, with: .automatic)
+                     */
+                }
+                break
             default:
                 break // do other stuff or do nothing
             }
@@ -123,6 +183,72 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                 break // do other stuff or do nothing
             }
         })
+    }
+    
+    @IBAction func upvoteSong(_ sender: UIButton) {
+        
+        let id = UIDevice.current.identifierForVendor!.uuidString
+        
+        guard let cell = sender.superview?.superview as? SongCell else {
+            return // or fatalError() or whatever
+        }
+        
+        let indexPath = tableView.indexPath(for: cell)
+        
+        let song = songs[indexPath!.section] as! Song
+        
+        if song.upvotes.contains(id) {
+            song.upvotes = song.upvotes.filter {$0 != id}
+            cell.upvoteButton.setImage(UIImage(named: "arrow-up"), for: .normal)
+        } else {
+            if song.downvotes.contains(id) {
+                song.downvotes = song.downvotes.filter {$0 != id}
+                cell.downvoteButton.setImage(UIImage(named: "arrow-down"), for: .normal)
+            }
+            
+            song.upvotes.append(id)
+            cell.upvoteButton.setImage(UIImage(named: "arrow-up-selected"), for: .normal)
+        }
+        
+        song.saveInBackground() { (success, error) in
+            if(success) {
+            } else {
+                print("error: \(String(describing: error?.localizedDescription))")
+            }
+        }
+    }
+    
+    @IBAction func downvoteSong(_ sender: UIButton) {
+        
+        let id = UIDevice.current.identifierForVendor!.uuidString
+        
+        guard let cell = sender.superview?.superview as? SongCell else {
+            return // or fatalError() or whatever
+        }
+        
+        let indexPath = tableView.indexPath(for: cell)
+        
+        let song = songs[indexPath!.section] as! Song
+        
+        if song.downvotes.contains(id) {
+            song.downvotes = song.downvotes.filter {$0 != id}
+            cell.downvoteButton.setImage(UIImage(named: "arrow-down"), for: .normal)
+        } else {
+            if song.upvotes.contains(id) {
+                song.upvotes = song.upvotes.filter {$0 != id}
+                cell.upvoteButton.setImage(UIImage(named: "arrow-up"), for: .normal)
+            }
+            
+            song.downvotes.append(id)
+            cell.downvoteButton.setImage(UIImage(named: "arrow-down-selected"), for: .normal)
+        }
+        
+        song.saveInBackground() { (success, error) in
+            if(success) {
+            } else {
+                print("error: \(String(describing: error?.localizedDescription))")
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -167,7 +293,15 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.layer.shadowOpacity = 0.5
         cell.layer.shadowPath = shadowPath2.cgPath
         
-        let song = self.songs[indexPath.section]
+        let song = self.songs[indexPath.section] as! Song
+        
+        let id = UIDevice.current.identifierForVendor!.uuidString
+        
+        if song.upvotes.contains(id) {
+            cell.upvoteButton.setImage(UIImage(named: "arrow-up-selected"), for: .normal)
+        } else if song.downvotes.contains(id) {
+            cell.downvoteButton.setImage(UIImage(named: "arrow-down-selected"), for: .normal)
+        }
         
         cell.songTitleLabel.text = (song["name"] as! String)
         cell.artistName.text = (song["artist"] as! String)

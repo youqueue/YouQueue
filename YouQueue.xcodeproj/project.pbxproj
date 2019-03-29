@@ -17,9 +17,9 @@
 		48438E3F22274F20009F0ECE /* SongRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48438E3E22274F20009F0ECE /* SongRequestViewController.swift */; };
 		48438E412227543F009F0ECE /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48438E402227543F009F0ECE /* SongCell.swift */; };
 		485E3B09224C360F00EC4A69 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E3B08224C360F00EC4A69 /* GradientView.swift */; };
-		48773C4D2249F2750034C4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48773C4C2249F2750034C4BA /* Assets.xcassets */; };
-		48773C4F2249FD080034C4BA /* party.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 48773C4E2249FD020034C4BA /* party.mp4 */; };
 		48773C51224A8F2C0034C4BA /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48773C50224A8F2C0034C4BA /* Queue.swift */; };
+		487FC614224EB5200015A9B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 487FC613224EB51F0015A9B6 /* Assets.xcassets */; };
+		487FC616224EC8CE0015A9B6 /* party.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 487FC615224EC8C80015A9B6 /* party.mp4 */; };
 		4890869F2242DC1900B1F79D /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890869E2242DC1900B1F79D /* QueueViewController.swift */; };
 		489086A12242DC6F00B1F79D /* HostOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489086A02242DC6F00B1F79D /* HostOptionsViewController.swift */; };
 		48D676A72249C92A007E4039 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D676A62249C92A007E4039 /* Song.swift */; };
@@ -39,9 +39,9 @@
 		48438E3E22274F20009F0ECE /* SongRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestViewController.swift; sourceTree = "<group>"; };
 		48438E402227543F009F0ECE /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
 		485E3B08224C360F00EC4A69 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		48773C4C2249F2750034C4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		48773C4E2249FD020034C4BA /* party.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = party.mp4; sourceTree = "<group>"; };
 		48773C50224A8F2C0034C4BA /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		487FC613224EB51F0015A9B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		487FC615224EC8C80015A9B6 /* party.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = party.mp4; sourceTree = "<group>"; };
 		4890869E2242DC1900B1F79D /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
 		489086A02242DC6F00B1F79D /* HostOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostOptionsViewController.swift; sourceTree = "<group>"; };
 		48D676A62249C92A007E4039 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
@@ -96,12 +96,12 @@
 		48438E272227401A009F0ECE /* YouQueue */ = {
 			isa = PBXGroup;
 			children = (
-				48773C4E2249FD020034C4BA /* party.mp4 */,
+				487FC613224EB51F0015A9B6 /* Assets.xcassets */,
+				487FC615224EC8C80015A9B6 /* party.mp4 */,
 				48438E282227401A009F0ECE /* AppDelegate.swift */,
 				48438E2A2227401A009F0ECE /* ViewController.swift */,
 				48438E2C2227401A009F0ECE /* Main.storyboard */,
 				48438E312227401B009F0ECE /* LaunchScreen.storyboard */,
-				48773C4C2249F2750034C4BA /* Assets.xcassets */,
 				48438E342227401B009F0ECE /* Info.plist */,
 				48438E3E22274F20009F0ECE /* SongRequestViewController.swift */,
 				48438E402227543F009F0ECE /* SongCell.swift */,
@@ -191,9 +191,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48773C4F2249FD080034C4BA /* party.mp4 in Resources */,
+				487FC616224EC8CE0015A9B6 /* party.mp4 in Resources */,
 				48438E332227401B009F0ECE /* LaunchScreen.storyboard in Resources */,
-				48773C4D2249F2750034C4BA /* Assets.xcassets in Resources */,
+				487FC614224EB5200015A9B6 /* Assets.xcassets in Resources */,
 				48438E2E2227401A009F0ECE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,9 +237,9 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DeckTransition/DeckTransition.framework",
-				"${BUILT_PRODUCTS_DIR}/Dodo/Dodo.framework",
 				"${BUILT_PRODUCTS_DIR}/ESTMusicIndicator/ESTMusicIndicator.framework",
 				"${BUILT_PRODUCTS_DIR}/PMSuperButton/PMSuperButton.framework",
+				"${BUILT_PRODUCTS_DIR}/Panels/Panels.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
@@ -255,9 +255,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeckTransition.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dodo.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTMusicIndicator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMSuperButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Panels.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",

@@ -10,8 +10,8 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
   - DeckTransition (2.1.0)
-  - Dodo (12.0.0)
   - ESTMusicIndicator (0.2.0)
+  - Panels (2.0.3)
   - Parse (1.17.2):
     - Parse/Core (= 1.17.2)
   - Parse/Core (1.17.2):
@@ -29,8 +29,8 @@ PODS:
 DEPENDENCIES:
   - AlamofireImage
   - DeckTransition (~> 2.0)
-  - Dodo (~> 12.0)
   - ESTMusicIndicator
+  - Panels
   - Parse
   - ParseLiveQuery
   - PMSuperButton
@@ -44,8 +44,8 @@ SPEC REPOS:
     - Bolts
     - Bolts-Swift
     - DeckTransition
-    - Dodo
     - ESTMusicIndicator
+    - Panels
     - Parse
     - ParseLiveQuery
     - PMSuperButton
@@ -59,8 +59,8 @@ SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Bolts-Swift: 650d72e8017721b1a6bbe43d542c4578f8e5ba6f
   DeckTransition: ca707456e3d83928c895fed6f458cbf68c5cac84
-  Dodo: c2a3e49a6b5fcba6c17d4127e72de4decbdd9534
   ESTMusicIndicator: 80a123b51a7de3caa44dc91829b9619185dad0f6
+  Panels: bd346a08593b64b9d295de21c366400a93437e79
   Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
   ParseLiveQuery: 84cce90a2ee3af04ed51249bc1734c4a6dbe09ab
   PMSuperButton: 5e7b2eb79468dba1ced3fd00e47a7ce88a1fa664
@@ -68,6 +68,6 @@ SPEC CHECKSUMS:
   SwiftVideoBackground: 28c37a2cb1bb6162ef179cfd9bb2b08de967b632
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 6b1484c5acaabbb749b34430c0f19069c950cb33
+PODFILE CHECKSUM: 22aaf01e871871a881cecdf2438db63e9390f37a
 
 COCOAPODS: 1.5.3

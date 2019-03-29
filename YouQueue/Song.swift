@@ -11,6 +11,7 @@ import Parse
 
 class Song: PFObject, PFSubclassing {
     
+    @NSManaged var id: String
     @NSManaged var songId: Int
     @NSManaged var name: String
     @NSManaged var artist: String
@@ -18,6 +19,8 @@ class Song: PFObject, PFSubclassing {
     @NSManaged var votes: Int
     @NSManaged var queue: PFObject?
     @NSManaged var played: Bool
+    @NSManaged var upvotes: [String]
+    @NSManaged var downvotes: [String]
     
     static func parseClassName() -> String {
         return "Song"
