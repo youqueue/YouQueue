@@ -16,6 +16,7 @@
 		48438E3D222740C9009F0ECE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48438E3C222740C9009F0ECE /* MediaPlayer.framework */; };
 		48438E3F22274F20009F0ECE /* SongRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48438E3E22274F20009F0ECE /* SongRequestViewController.swift */; };
 		48438E412227543F009F0ECE /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48438E402227543F009F0ECE /* SongCell.swift */; };
+		485E3B09224C360F00EC4A69 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E3B08224C360F00EC4A69 /* GradientView.swift */; };
 		48773C4D2249F2750034C4BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48773C4C2249F2750034C4BA /* Assets.xcassets */; };
 		48773C4F2249FD080034C4BA /* party.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 48773C4E2249FD020034C4BA /* party.mp4 */; };
 		48773C51224A8F2C0034C4BA /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48773C50224A8F2C0034C4BA /* Queue.swift */; };
@@ -37,6 +38,7 @@
 		48438E3C222740C9009F0ECE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		48438E3E22274F20009F0ECE /* SongRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestViewController.swift; sourceTree = "<group>"; };
 		48438E402227543F009F0ECE /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
+		485E3B08224C360F00EC4A69 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		48773C4C2249F2750034C4BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48773C4E2249FD020034C4BA /* party.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = party.mp4; sourceTree = "<group>"; };
 		48773C50224A8F2C0034C4BA /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				489086A02242DC6F00B1F79D /* HostOptionsViewController.swift */,
 				48D676A62249C92A007E4039 /* Song.swift */,
 				48773C50224A8F2C0034C4BA /* Queue.swift */,
+				485E3B08224C360F00EC4A69 /* GradientView.swift */,
 			);
 			path = YouQueue;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			files = (
 				48E2496B222DEAC5007B1097 /* HomeViewController.swift in Sources */,
 				48438E412227543F009F0ECE /* SongCell.swift in Sources */,
+				485E3B09224C360F00EC4A69 /* GradientView.swift in Sources */,
 				4890869F2242DC1900B1F79D /* QueueViewController.swift in Sources */,
 				48D676A72249C92A007E4039 /* Song.swift in Sources */,
 				489086A12242DC6F00B1F79D /* HostOptionsViewController.swift in Sources */,

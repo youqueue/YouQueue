@@ -19,7 +19,6 @@ class JoinPartyViewController: UIViewController, UITextFieldDelegate {
         codeField.delegate = self
         self.modalPresentationCapturesStatusBarAppearance = true
         self.codeField.autocapitalizationType = .allCharacters
-        // Do any additional setup after loading the view.
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

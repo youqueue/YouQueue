@@ -21,6 +21,13 @@ class SongCell: UITableViewCell {
         super.awakeFromNib()
         
         songTitleLabel.sizeToFit()
+        
+        let rectShape = CAShapeLayer()
+        rectShape.bounds = albumArt.frame
+        rectShape.position = albumArt.center
+        rectShape.path = UIBezierPath(roundedRect: albumArt.bounds, byRoundingCorners: [.bottomLeft , .topLeft], cornerRadii: CGSize(width: 7, height: 7)).cgPath
+        
+        albumArt.layer.mask = rectShape
         // Initialization code
     }
 
