@@ -1,4 +1,6 @@
 ## YouQueue
+<img src="https://img.shields.io/github/issues/youqueue/youqueue.svg" /></a>
+<img src="https://img.shields.io/github/license/youqueue/youqueue.svg" /></a>
 
 ### App Description
 Allows users to collaboratively add songs from Apple Music to a single song queue. Users can vote to move songs
@@ -24,9 +26,9 @@ around the queue. The Music will play out of the host, or "DJ", device.
 ---
 
 ### User Stories (Required)
-1. [ ] User can create a new queue or join one by a code
+1. [x] User can create a new queue or join one by a code
 2. [X] User can search for songs
-3. [ ] User can add songs to the queue
+3. [x] User can add songs to the queue
 4. [ ] User can upvote/downvote songs to move them around the queue
 
 ### User Stories (Optional)
