@@ -34,7 +34,7 @@ around the queue. The Music will play out of the host, or "DJ", device.
 4. [x] User can upvote/downvote songs to move them around the queue
 
 ### User Stories (Optional)
-1. [ ] Host can manually adjust the voting threshold needed to remove a song
+1. [X] Host can manually adjust the voting threshold needed to remove a song
 2. [ ] Host has the power to instantly remove a song or move it around the queue
 3. [ ] Suggested queues will be pop up based on your location
 4. [ ] User can view who is in the group with them
@@ -51,6 +51,7 @@ around the queue. The Music will play out of the host, or "DJ", device.
 
 ### Wireframes
 <img src="https://i.imgur.com/Crzpfak.png" width=600><br>
+<img src="https://i.imgur.com/yYfGc0t.gif" width=600><br>
 
 ---
 
