@@ -3,6 +3,7 @@
 <img src="https://img.shields.io/github/license/youqueue/youqueue.svg" /></a>
 
 <img src='https://i.imgur.com/HrkfhtA.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/yYfGc0t.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 ### App Description
 Allows users to collaboratively add songs from Apple Music to a single song queue. Users can vote to move songs
@@ -50,8 +51,7 @@ around the queue. The Music will play out of the host, or "DJ", device.
 ---
 
 ### Wireframes
-<img src="https://i.imgur.com/Crzpfak.png" width=600><br>
-<img src="https://i.imgur.com/yYfGc0t.gif" width=600><br>
+<img src="https://i.imgur.com/Crzpfak.png" width=600><br
 
 ---
 
