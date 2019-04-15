@@ -206,21 +206,30 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                     let oldsongs = self.songs
 
                     let newSong = object as! Song
+                    let oldSong = self.songs.filter({$0.songId == newSong.songId}).first
 
-                    self.songs.filter({$0.id == newSong.id}).first?.upvotes = newSong.upvotes
-                    self.songs.filter({$0.id == newSong.id}).first?.downvotes = newSong.downvotes
+                    oldSong?.upvotes = newSong.upvotes
+                    oldSong?.downvotes = newSong.downvotes
 
                     self.songs.sort(by: self.sortSongs)
 
-                    self.tableView.beginUpdates()
+                    DispatchQueue.main.async {
+                        CATransaction.begin()
 
-                    for i in 0...self.songs.count-1 {
-                        let newRow = self.songs.index(of: oldsongs[i])
-                        self.tableView.moveRow(at: IndexPath(item: 0, section: i),
-                                               to: IndexPath(item: 0, section: newRow!))
+                        CATransaction.setCompletionBlock({
+                            self.tableView.reloadData()
+                        })
+
+                        self.tableView.beginUpdates()
+
+                        for i in 0...self.songs.count-1 {
+                            let newRow = self.songs.index(of: oldsongs[i])
+                            self.tableView.moveRow(at: IndexPath(item: 0, section: i),
+                                                   to: IndexPath(item: 0, section: newRow!))
+                        }
+                        self.tableView.endUpdates()
+                        CATransaction.commit()
                     }
-
-                    self.tableView.endUpdates()
             case .left(let object):
 
                 let song = (object as! Song)
@@ -281,20 +290,20 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         if song.upvotes.contains(id) {
             song.upvotes = song.upvotes.filter {$0 != id}
-            cell.upvoteButton.setImage(UIImage(named: "arrow-up"), for: .normal)
+            //cell.upvoteButton.setImage(UIImage(named: "arrow-up"), for: .normal)
         } else {
             if song.downvotes.contains(id) {
                 song.downvotes = song.downvotes.filter {$0 != id}
-                cell.downvoteButton.setImage(UIImage(named: "arrow-down"), for: .normal)
+                //cell.downvoteButton.setImage(UIImage(named: "arrow-down"), for: .normal)
             }
 
             song.upvotes.append(id)
-            cell.upvoteButton.setImage(UIImage(named: "arrow-up-selected"), for: .normal)
+            //cell.upvoteButton.setImage(UIImage(named: "arrow-up-selected"), for: .normal)
         }
 
         let votes: Int = song.upvotes.count - song.downvotes.count
 
-        cell.voteLabel.text = String(votes)
+        //cell.voteLabel.text = String(votes)
 
         song.saveInBackground { (success, error) in
             if success {
@@ -318,20 +327,20 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         if song.downvotes.contains(id) {
             song.downvotes = song.downvotes.filter {$0 != id}
-            cell.downvoteButton.setImage(UIImage(named: "arrow-down"), for: .normal)
+            //cell.downvoteButton.setImage(UIImage(named: "arrow-down"), for: .normal)
         } else {
             if song.upvotes.contains(id) {
                 song.upvotes = song.upvotes.filter {$0 != id}
-                cell.upvoteButton.setImage(UIImage(named: "arrow-up"), for: .normal)
+                //cell.upvoteButton.setImage(UIImage(named: "arrow-up"), for: .normal)
             }
 
             song.downvotes.append(id)
-            cell.downvoteButton.setImage(UIImage(named: "arrow-down-selected"), for: .normal)
+            //cell.downvoteButton.setImage(UIImage(named: "arrow-down-selected"), for: .normal)
         }
 
-        let votes: Int = song.upvotes.count - song.downvotes.count
+        //let votes: Int = song.upvotes.count - song.downvotes.count
 
-        cell.voteLabel.text = String(votes)
+        //cell.voteLabel.text = String(votes)
 
         song.saveInBackground { (success, error) in
             if success {
@@ -390,8 +399,13 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         if song.upvotes.contains(id) {
             cell.upvoteButton.setImage(UIImage(named: "arrow-up-selected"), for: .normal)
-        } else if song.downvotes.contains(id) {
+        } else {
+            cell.upvoteButton.setImage(UIImage(named: "arrow-up"), for: .normal)
+        }
+        if song.downvotes.contains(id) {
             cell.downvoteButton.setImage(UIImage(named: "arrow-down-selected"), for: .normal)
+        } else {
+            cell.downvoteButton.setImage(UIImage(named: "arrow-down"), for: .normal)
         }
 
         let votes: Int = song.upvotes.count - song.downvotes.count
