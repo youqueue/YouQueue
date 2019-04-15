@@ -8,29 +8,31 @@
 
 /* Begin PBXBuildFile section */
 		07FD7F30B97618A562C5EAA8 /* Pods_YouQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAB6A40458AEC393DFA4D67 /* Pods_YouQueue.framework */; };
+		483A36D22252895900BC4C39 /* party.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 483A36D12252895600BC4C39 /* party.mp4 */; };
 		48438E292227401A009F0ECE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48438E282227401A009F0ECE /* AppDelegate.swift */; };
-		48438E2B2227401A009F0ECE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48438E2A2227401A009F0ECE /* ViewController.swift */; };
 		48438E2E2227401A009F0ECE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48438E2C2227401A009F0ECE /* Main.storyboard */; };
 		48438E332227401B009F0ECE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48438E312227401B009F0ECE /* LaunchScreen.storyboard */; };
 		48438E3B222740C3009F0ECE /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48438E3A222740C3009F0ECE /* StoreKit.framework */; };
 		48438E3D222740C9009F0ECE /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48438E3C222740C9009F0ECE /* MediaPlayer.framework */; };
 		48438E3F22274F20009F0ECE /* SongRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48438E3E22274F20009F0ECE /* SongRequestViewController.swift */; };
 		48438E412227543F009F0ECE /* SongCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48438E402227543F009F0ECE /* SongCell.swift */; };
+		4855492722529417007CD5AF /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4855492622529417007CD5AF /* NowPlayingViewController.swift */; };
+		4855492A2252978D007CD5AF /* NowPlayingBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485549292252978D007CD5AF /* NowPlayingBarViewController.swift */; };
 		485E3B09224C360F00EC4A69 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485E3B08224C360F00EC4A69 /* GradientView.swift */; };
 		48773C51224A8F2C0034C4BA /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48773C50224A8F2C0034C4BA /* Queue.swift */; };
-		487FC614224EB5200015A9B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 487FC613224EB51F0015A9B6 /* Assets.xcassets */; };
-		487FC616224EC8CE0015A9B6 /* party.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 487FC615224EC8C80015A9B6 /* party.mp4 */; };
 		4890869F2242DC1900B1F79D /* QueueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4890869E2242DC1900B1F79D /* QueueViewController.swift */; };
 		489086A12242DC6F00B1F79D /* HostOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 489086A02242DC6F00B1F79D /* HostOptionsViewController.swift */; };
+		48991A38225444B600BC562C /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 48991A37225444B600BC562C /* .swiftlint.yml */; };
+		48A649EA225E8CDE005B779B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48A649E9225E8CDE005B779B /* Assets.xcassets */; };
 		48D676A72249C92A007E4039 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D676A62249C92A007E4039 /* Song.swift */; };
 		48E2496B222DEAC5007B1097 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E2496A222DEAC5007B1097 /* HomeViewController.swift */; };
 		48E2496D222DEAEC007B1097 /* JoinPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E2496C222DEAEC007B1097 /* JoinPartyViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		483A36D12252895600BC4C39 /* party.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = party.mp4; sourceTree = "<group>"; };
 		48438E252227401A009F0ECE /* YouQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouQueue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48438E282227401A009F0ECE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		48438E2A2227401A009F0ECE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		48438E2D2227401A009F0ECE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		48438E322227401B009F0ECE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		48438E342227401B009F0ECE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -38,12 +40,14 @@
 		48438E3C222740C9009F0ECE /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		48438E3E22274F20009F0ECE /* SongRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongRequestViewController.swift; sourceTree = "<group>"; };
 		48438E402227543F009F0ECE /* SongCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongCell.swift; sourceTree = "<group>"; };
+		4855492622529417007CD5AF /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		485549292252978D007CD5AF /* NowPlayingBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingBarViewController.swift; sourceTree = "<group>"; };
 		485E3B08224C360F00EC4A69 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		48773C50224A8F2C0034C4BA /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
-		487FC613224EB51F0015A9B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		487FC615224EC8C80015A9B6 /* party.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = party.mp4; sourceTree = "<group>"; };
 		4890869E2242DC1900B1F79D /* QueueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueueViewController.swift; sourceTree = "<group>"; };
 		489086A02242DC6F00B1F79D /* HostOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostOptionsViewController.swift; sourceTree = "<group>"; };
+		48991A37225444B600BC562C /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		48A649E9225E8CDE005B779B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		48D676A62249C92A007E4039 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		48E2496A222DEAC5007B1097 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		48E2496C222DEAEC007B1097 /* JoinPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPartyViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +82,7 @@
 		48438E1C2227401A009F0ECE = {
 			isa = PBXGroup;
 			children = (
+				48991A37225444B600BC562C /* .swiftlint.yml */,
 				48438E272227401A009F0ECE /* YouQueue */,
 				48438E262227401A009F0ECE /* Products */,
 				34E7758855CD2E72E977C5AF /* Pods */,
@@ -96,10 +101,9 @@
 		48438E272227401A009F0ECE /* YouQueue */ = {
 			isa = PBXGroup;
 			children = (
-				487FC613224EB51F0015A9B6 /* Assets.xcassets */,
-				487FC615224EC8C80015A9B6 /* party.mp4 */,
+				483A36D12252895600BC4C39 /* party.mp4 */,
+				48A649E9225E8CDE005B779B /* Assets.xcassets */,
 				48438E282227401A009F0ECE /* AppDelegate.swift */,
-				48438E2A2227401A009F0ECE /* ViewController.swift */,
 				48438E2C2227401A009F0ECE /* Main.storyboard */,
 				48438E312227401B009F0ECE /* LaunchScreen.storyboard */,
 				48438E342227401B009F0ECE /* Info.plist */,
@@ -112,6 +116,8 @@
 				48D676A62249C92A007E4039 /* Song.swift */,
 				48773C50224A8F2C0034C4BA /* Queue.swift */,
 				485E3B08224C360F00EC4A69 /* GradientView.swift */,
+				4855492622529417007CD5AF /* NowPlayingViewController.swift */,
+				485549292252978D007CD5AF /* NowPlayingBarViewController.swift */,
 			);
 			path = YouQueue;
 			sourceTree = "<group>";
@@ -138,6 +144,7 @@
 				48438E222227401A009F0ECE /* Frameworks */,
 				48438E232227401A009F0ECE /* Resources */,
 				82298CADE89507529C4D0C85 /* [CP] Embed Pods Frameworks */,
+				48991A362254426800BC562C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -191,16 +198,34 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				487FC616224EC8CE0015A9B6 /* party.mp4 in Resources */,
+				48991A38225444B600BC562C /* .swiftlint.yml in Resources */,
+				483A36D22252895900BC4C39 /* party.mp4 in Resources */,
 				48438E332227401B009F0ECE /* LaunchScreen.storyboard in Resources */,
-				487FC614224EB5200015A9B6 /* Assets.xcassets in Resources */,
 				48438E2E2227401A009F0ECE /* Main.storyboard in Resources */,
+				48A649EA225E8CDE005B779B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		48991A362254426800BC562C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
+		};
 		56DAA043AC3A3AB41E32C007 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -237,9 +262,8 @@
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts-Swift/BoltsSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/DeckTransition/DeckTransition.framework",
-				"${BUILT_PRODUCTS_DIR}/ESTMusicIndicator/ESTMusicIndicator.framework",
+				"${BUILT_PRODUCTS_DIR}/LNPopupController/LNPopupController.framework",
 				"${BUILT_PRODUCTS_DIR}/PMSuperButton/PMSuperButton.framework",
-				"${BUILT_PRODUCTS_DIR}/Panels/Panels.framework",
 				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
 				"${BUILT_PRODUCTS_DIR}/ParseLiveQuery/ParseLiveQuery.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
@@ -255,9 +279,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BoltsSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DeckTransition.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESTMusicIndicator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LNPopupController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMSuperButton.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Panels.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ParseLiveQuery.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
@@ -278,12 +301,13 @@
 			files = (
 				48E2496B222DEAC5007B1097 /* HomeViewController.swift in Sources */,
 				48438E412227543F009F0ECE /* SongCell.swift in Sources */,
+				4855492A2252978D007CD5AF /* NowPlayingBarViewController.swift in Sources */,
 				485E3B09224C360F00EC4A69 /* GradientView.swift in Sources */,
 				4890869F2242DC1900B1F79D /* QueueViewController.swift in Sources */,
+				4855492722529417007CD5AF /* NowPlayingViewController.swift in Sources */,
 				48D676A72249C92A007E4039 /* Song.swift in Sources */,
 				489086A12242DC6F00B1F79D /* HostOptionsViewController.swift in Sources */,
 				48773C51224A8F2C0034C4BA /* Queue.swift in Sources */,
-				48438E2B2227401A009F0ECE /* ViewController.swift in Sources */,
 				48438E3F22274F20009F0ECE /* SongRequestViewController.swift in Sources */,
 				48438E292227401A009F0ECE /* AppDelegate.swift in Sources */,
 				48E2496D222DEAEC007B1097 /* JoinPartyViewController.swift in Sources */,

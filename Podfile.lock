@@ -10,8 +10,7 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.9.0)
   - DeckTransition (2.1.0)
-  - ESTMusicIndicator (0.2.0)
-  - Panels (2.0.3)
+  - LNPopupController (2.7.1)
   - Parse (1.17.2):
     - Parse/Core (= 1.17.2)
   - Parse/Core (1.17.2):
@@ -23,17 +22,18 @@ PODS:
     - Starscream (~> 3.0.4)
   - PMSuperButton (2.2.0)
   - Starscream (3.0.6)
+  - SwiftLint (0.31.0)
   - SwiftVideoBackground (3.2.0)
   - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
   - AlamofireImage
   - DeckTransition (~> 2.0)
-  - ESTMusicIndicator
-  - Panels
+  - LNPopupController
   - Parse
   - ParseLiveQuery
   - PMSuperButton
+  - SwiftLint
   - SwiftVideoBackground (~> 3.0)
   - TextFieldEffects
 
@@ -44,12 +44,12 @@ SPEC REPOS:
     - Bolts
     - Bolts-Swift
     - DeckTransition
-    - ESTMusicIndicator
-    - Panels
+    - LNPopupController
     - Parse
     - ParseLiveQuery
     - PMSuperButton
     - Starscream
+    - SwiftLint
     - SwiftVideoBackground
     - TextFieldEffects
 
@@ -59,15 +59,15 @@ SPEC CHECKSUMS:
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Bolts-Swift: 650d72e8017721b1a6bbe43d542c4578f8e5ba6f
   DeckTransition: ca707456e3d83928c895fed6f458cbf68c5cac84
-  ESTMusicIndicator: 80a123b51a7de3caa44dc91829b9619185dad0f6
-  Panels: bd346a08593b64b9d295de21c366400a93437e79
+  LNPopupController: 62358836cc6bfebb75880198a6b249b3bdd59367
   Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
   ParseLiveQuery: 84cce90a2ee3af04ed51249bc1734c4a6dbe09ab
   PMSuperButton: 5e7b2eb79468dba1ced3fd00e47a7ce88a1fa664
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
+  SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
   SwiftVideoBackground: 28c37a2cb1bb6162ef179cfd9bb2b08de967b632
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: 22aaf01e871871a881cecdf2438db63e9390f37a
+PODFILE CHECKSUM: c9c6ece0a8e63d7233ea913ac7dd7fecdef382c3
 
 COCOAPODS: 1.5.3

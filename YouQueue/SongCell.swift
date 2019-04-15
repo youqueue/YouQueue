@@ -16,26 +16,25 @@ class SongCell: UITableViewCell {
     @IBOutlet weak var artistName: UILabel!
     @IBOutlet weak var upvoteButton: UIButton!
     @IBOutlet weak var downvoteButton: UIButton!
-    
+    @IBOutlet weak var voteLabel: UILabel!
+
     var song: PFObject!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+
         songTitleLabel.sizeToFit()
-        
+
         let rectShape = CAShapeLayer()
         rectShape.bounds = albumArt.frame
         rectShape.position = albumArt.center
-        rectShape.path = UIBezierPath(roundedRect: albumArt.bounds, byRoundingCorners: [.bottomLeft , .topLeft], cornerRadii: CGSize(width: 7, height: 7)).cgPath
-        
+        rectShape.path = UIBezierPath(roundedRect: albumArt.bounds, byRoundingCorners: [.bottomLeft, .topLeft],
+                                      cornerRadii: CGSize(width: 7, height: 7)).cgPath
+
         albumArt.layer.mask = rectShape
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 }

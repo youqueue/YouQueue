@@ -15,7 +15,7 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         do {
             try VideoBackground.shared.play(view: self.view, videoName: "party", videoType: "mp4")
         } catch let error {
@@ -23,19 +23,19 @@ class HomeViewController: UIViewController {
         }
         // Do any additional setup after loading the view.
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        if(UserDefaults.standard.bool(forKey: "activeQueue")) {
-            
+
+        if UserDefaults.standard.bool(forKey: "activeQueue") {
+
             let code = UserDefaults.standard.string(forKey: "queue")
-            let query = Queue.query()?.whereKey("code", equalTo: code)
-            
+            let query = Queue.query()?.whereKey("code", equalTo: code!)
+
             do {
                 let queues = try query!.findObjects()
                 let queue = queues.first! as! Queue
-                
+
                 if queue.open {
                     self.performSegue(withIdentifier: "rejoinParty", sender: self)
                 } else {
@@ -43,34 +43,32 @@ class HomeViewController: UIViewController {
                 }
             } catch {
             }
-           
+
         }
     }
-    
+
     override var prefersHomeIndicatorAutoHidden: Bool {
         return true
     }
-    
-    
-    
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "rejoinParty") {
+        if segue.identifier == "rejoinParty" {
             let code = UserDefaults.standard.string(forKey: "queue")
             let host = UserDefaults.standard.bool(forKey: "host")
-            let query = Queue.query()?.whereKey("code", equalTo: code)
-            
+            let query = Queue.query()?.whereKey("code", equalTo: code!)
+
             do {
                 let queues = try query!.findObjects()
                 let queue = queues.first! as! Queue
-                
-                let nc = segue.destination as! UINavigationController
-                let vc = nc.topViewController as! QueueViewController
-                
-                vc.host = host
-                vc.queue = queue
+
+                let navigationController = segue.destination as! UINavigationController
+                let viewController = navigationController.topViewController as! QueueViewController
+
+                viewController.host = host
+                viewController.queue = queue
             } catch {
             }
         }

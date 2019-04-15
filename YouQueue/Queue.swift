@@ -10,16 +10,16 @@ import UIKit
 import Parse
 
 class Queue: PFObject, PFSubclassing {
-    
+
     @NSManaged var code: String
     @NSManaged var lat: Double
     @NSManaged var long: Double
-    @NSManaged var vote_threshold: Int
-    @NSManaged var allow_duplicated: Bool
-    @NSManaged var restrict_location: Bool
-    @NSManaged var location_min: Double
+    @NSManaged var voteThreshold: Int
+    @NSManaged var allowDuplicated: Bool
+    @NSManaged var restrictLocation: Bool
+    @NSManaged var locationMin: Double
     @NSManaged var open: Bool
-    
+
     static func parseClassName() -> String {
         return "Queue"
     }

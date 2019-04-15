@@ -7,12 +7,12 @@ target 'YouQueue' do
 
   # Pods for YouQueue
   pod 'DeckTransition', '~> 2.0'
-  pod 'ESTMusicIndicator'
   pod 'AlamofireImage'
   pod 'PMSuperButton'
   pod 'TextFieldEffects'
   pod 'Parse'
   pod 'ParseLiveQuery'
   pod 'SwiftVideoBackground', '~> 3.0'
-  pod "Panels"
+  pod 'LNPopupController'
+  pod 'SwiftLint'
 end
