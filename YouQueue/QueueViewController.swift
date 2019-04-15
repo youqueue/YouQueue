@@ -153,20 +153,34 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     func playNextSong() {
-            self.applicationMusicPlayer.stop()
-            self.applicationMusicPlayer.nowPlayingItem = nil
-        let firstSong = self.songs.filter {$0.played == false }.first!
-            firstSong.played = true
-            firstSong.saveInBackground { (success, error) in
-                if (error != nil) {
-                    print("ERROR!!!!\n\n")
-                    print(error?.localizedDescription)
+        self.applicationMusicPlayer.stop()
+        self.applicationMusicPlayer.nowPlayingItem = nil
+        self.applicationMusicPlayer.setQueue(with: [])
+        let unplayedSongs = self.songs.filter { $0.played == false }
+
+        if unplayedSongs.count == 0 {
+            return
+        }
+
+        let firstSong = unplayedSongs.first!
+        firstSong.played = true
+        firstSong.saveInBackground { (success, error) in
+            if success {
+                self.songs = self.songs.filter { $0.songId != firstSong.songId }
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
+            } else {
+                print(error?.localizedDescription)
             }
-            self.applicationMusicPlayer.setQueue(with: [String(firstSong.songId)])
-            self.applicationMusicPlayer.prepareToPlay(completionHandler: { (_) in
-                self.applicationMusicPlayer.play()
-            })
+        }
+        self.applicationMusicPlayer.setQueue(with: [String(firstSong.songId)])
+
+        self.barController.setSong(song: firstSong)
+        self.nowPlayingController.setSong(song: firstSong)
+        self.applicationMusicPlayer.prepareToPlay(completionHandler: { (_) in
+            self.applicationMusicPlayer.play()
+        })
     }
 
     func subscribeToServer() {
@@ -183,13 +197,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             switch event {
             case .created(let object):
                 self.songs.append(object as! Song)
-                let song = object as! Song
-                print("Added \"\(song.name)\" (\(String(song.songId))) to queue")
                 self.songs.sort(by: self.sortSongs)
-
-                if self.host {
-                    // play music
-                }
 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -214,10 +222,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
                     self.tableView.endUpdates()
             case .left(let object):
-                let songId = object["songId"] as! Int
-                let song = object as! Song
-                print("removing: \(song.name) (\(song.songId))")
-                self.songs = self.songs.filter { $0.songId != songId }
+
+                let song = (object as! Song)
+
+                // remove the song
+                self.songs = self.songs.filter { $0.songId != song.songId }
 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

@@ -39,7 +39,7 @@ class NowPlayingViewController: UIViewController {
     @objc func timerAction() {
         let progress = self.applicationMusicPlayer.currentPlaybackTime /
             (self.applicationMusicPlayer.nowPlayingItem?.playbackDuration ?? 0.0)
-        self.progressBar.setProgress(Float(progress), animated: true)
+        self.progressBar.setProgress(Float(progress), animated: false)
     }
 
     @IBAction func skipSong(_ sender: Any) {
