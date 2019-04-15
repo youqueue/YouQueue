@@ -15,4 +15,5 @@ target 'YouQueue' do
   pod 'SwiftVideoBackground', '~> 3.0'
   pod 'LNPopupController'
   pod 'SwiftLint'
+  pod 'MarqueeLabel'
 end
