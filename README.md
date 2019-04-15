@@ -33,6 +33,7 @@ around the queue. The Music will play out of the host, or "DJ", device.
 2. [X] User can search for songs
 3. [x] User can add songs to the queue
 4. [x] User can upvote/downvote songs to move them around the queue
+5. [x] User can listen to songs in order of the queue.
 
 ### User Stories (Optional)
 1. [X] Host can manually adjust the voting threshold needed to remove a song
