@@ -1,6 +1,6 @@
 PODS:
-  - Alamofire (4.8.1)
-  - AlamofireImage (3.5.0):
+  - Alamofire (4.8.2)
+  - AlamofireImage (3.5.2):
     - Alamofire (~> 4.8)
   - Bolts (1.9.0):
     - Bolts/AppLinks (= 1.9.0)
@@ -21,10 +21,10 @@ PODS:
     - Bolts-Swift (~> 1.4.0)
     - Parse (~> 1.17.0)
     - Starscream (~> 3.0.4)
-  - PMSuperButton (2.2.0)
+  - PMSuperButton (3.0.1)
   - Starscream (3.0.6)
   - SwiftLint (0.31.0)
-  - SwiftVideoBackground (3.2.0)
+  - SwiftVideoBackground (3.3.0)
   - TextFieldEffects (1.5.1)
 
 DEPENDENCIES:
@@ -57,8 +57,8 @@ SPEC REPOS:
     - TextFieldEffects
 
 SPEC CHECKSUMS:
-  Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
-  AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  AlamofireImage: 63cfe3baf1370be6c498149687cf6db3e3b00999
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
   Bolts-Swift: 650d72e8017721b1a6bbe43d542c4578f8e5ba6f
   DeckTransition: ca707456e3d83928c895fed6f458cbf68c5cac84
@@ -66,12 +66,12 @@ SPEC CHECKSUMS:
   MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
   Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
   ParseLiveQuery: 84cce90a2ee3af04ed51249bc1734c4a6dbe09ab
-  PMSuperButton: 5e7b2eb79468dba1ced3fd00e47a7ce88a1fa664
+  PMSuperButton: 2bef6f8659a5df969a69887f496ef309480c65eb
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SwiftLint: 7a0227733d786395817373b2d0ca799fd0093ff3
-  SwiftVideoBackground: 28c37a2cb1bb6162ef179cfd9bb2b08de967b632
+  SwiftVideoBackground: ebcc843d4cbcfc520e42472dad80925a6433da06
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
 PODFILE CHECKSUM: e4cb9bf4193d9fc0be61655525d38f5d9649cf95
 
-COCOAPODS: 1.6.0
+COCOAPODS: 1.5.3

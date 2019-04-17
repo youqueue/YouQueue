@@ -47,13 +47,7 @@ class NowPlayingViewController: UIViewController {
     }
 
     @IBAction func playPauseBtnPressed(_ sender: Any) {
-        if self.applicationMusicPlayer.playbackState == .playing {
-            self.applicationMusicPlayer.pause()
-            self.playPauseBtn.setImage(UIImage(named: "play"), for: .normal)
-        } else if self.applicationMusicPlayer.playbackState == .paused {
-            self.applicationMusicPlayer.play()
-            self.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
-        }
+        self.queueController.playPauseSong()
     }
 
     func setSong(song: Song?) {

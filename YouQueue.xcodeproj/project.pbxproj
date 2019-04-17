@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		07FD7F30B97618A562C5EAA8 /* Pods_YouQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFAB6A40458AEC393DFA4D67 /* Pods_YouQueue.framework */; };
-		483A36D22252895900BC4C39 /* party.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 483A36D12252895600BC4C39 /* party.mp4 */; };
 		48438E292227401A009F0ECE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48438E282227401A009F0ECE /* AppDelegate.swift */; };
 		48438E2E2227401A009F0ECE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48438E2C2227401A009F0ECE /* Main.storyboard */; };
 		48438E332227401B009F0ECE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48438E312227401B009F0ECE /* LaunchScreen.storyboard */; };
@@ -27,10 +26,10 @@
 		48D676A72249C92A007E4039 /* Song.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D676A62249C92A007E4039 /* Song.swift */; };
 		48E2496B222DEAC5007B1097 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E2496A222DEAC5007B1097 /* HomeViewController.swift */; };
 		48E2496D222DEAEC007B1097 /* JoinPartyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E2496C222DEAEC007B1097 /* JoinPartyViewController.swift */; };
+		48F198722267D71800ECD55B /* party.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 48F198712267D71700ECD55B /* party.mp4 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		483A36D12252895600BC4C39 /* party.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = party.mp4; sourceTree = "<group>"; };
 		48438E252227401A009F0ECE /* YouQueue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YouQueue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48438E282227401A009F0ECE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		48438E2D2227401A009F0ECE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		48D676A62249C92A007E4039 /* Song.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Song.swift; sourceTree = "<group>"; };
 		48E2496A222DEAC5007B1097 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		48E2496C222DEAEC007B1097 /* JoinPartyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPartyViewController.swift; sourceTree = "<group>"; };
+		48F198712267D71700ECD55B /* party.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = party.mp4; sourceTree = "<group>"; };
 		AE9C3B606E6CE8FBA098EE07 /* Pods-YouQueue.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouQueue.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YouQueue/Pods-YouQueue.debug.xcconfig"; sourceTree = "<group>"; };
 		CFAB6A40458AEC393DFA4D67 /* Pods_YouQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YouQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDB83350C6002047ECB2C5DA /* Pods-YouQueue.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YouQueue.release.xcconfig"; path = "Pods/Target Support Files/Pods-YouQueue/Pods-YouQueue.release.xcconfig"; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		48438E272227401A009F0ECE /* YouQueue */ = {
 			isa = PBXGroup;
 			children = (
-				483A36D12252895600BC4C39 /* party.mp4 */,
+				48F198712267D71700ECD55B /* party.mp4 */,
 				48A649E9225E8CDE005B779B /* Assets.xcassets */,
 				48438E282227401A009F0ECE /* AppDelegate.swift */,
 				48438E2C2227401A009F0ECE /* Main.storyboard */,
@@ -198,8 +198,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48F198722267D71800ECD55B /* party.mp4 in Resources */,
 				48991A38225444B600BC562C /* .swiftlint.yml in Resources */,
-				483A36D22252895900BC4C39 /* party.mp4 in Resources */,
 				48438E332227401B009F0ECE /* LaunchScreen.storyboard in Resources */,
 				48438E2E2227401A009F0ECE /* Main.storyboard in Resources */,
 				48A649EA225E8CDE005B779B /* Assets.xcassets in Resources */,
@@ -256,7 +256,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-YouQueue/Pods-YouQueue-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-YouQueue/Pods-YouQueue-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
@@ -291,7 +291,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-YouQueue/Pods-YouQueue-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-YouQueue/Pods-YouQueue-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

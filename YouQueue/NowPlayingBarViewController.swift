@@ -19,6 +19,8 @@ class NowPlayingBarViewController: LNPopupCustomBarViewController {
     
     let applicationMusicPlayer = MPMusicPlayerController.applicationQueuePlayer
 
+    var queueController: QueueViewController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,13 +37,7 @@ class NowPlayingBarViewController: LNPopupCustomBarViewController {
     }
 
     @IBAction func playPausePressed(_ sender: Any) {
-        if self.applicationMusicPlayer.playbackState == .playing {
-            self.applicationMusicPlayer.pause()
-            self.playPauseBtn.setImage(UIImage(named: "play"), for: .normal)
-        } else if self.applicationMusicPlayer.playbackState == .paused {
-            self.applicationMusicPlayer.play()
-            self.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
-        }
+        self.queueController.playPauseSong()
     }
 
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

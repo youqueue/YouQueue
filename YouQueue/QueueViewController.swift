@@ -63,9 +63,10 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         nowPlayingController = (storyboard?.instantiateViewController(withIdentifier: "nowPlaying")
             as! NowPlayingViewController)
         nowPlayingController.queueController = self
-        
+
         barController = (storyboard?.instantiateViewController(withIdentifier: "nowPlayingBar")
             as! NowPlayingBarViewController)
+        barController.queueController = self
         popupBar.customBarViewController = barController
 
         if host {
@@ -117,8 +118,21 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
 
     @objc func playbackStateDidChange(_ notification: Notification) {
-        if self.applicationMusicPlayer.playbackState == .stopped && self.songs.count > 0 {
-            self.playNextSong()
+        switch self.applicationMusicPlayer.playbackState {
+        case .stopped:
+            if self.songs.count > 0 {
+                self.nowPlayingController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
+                self.barController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
+                self.playNextSong()
+            } else {
+                self.nowPlayingController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
+                self.barController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
+            }
+        case .playing:
+            self.nowPlayingController.playPauseBtn.setImage(UIImage(named: "play"), for: .normal)
+            self.barController.playPauseBtn.setImage(UIImage(named: "play"), for: .normal)
+        default:
+            break
         }
     }
 
@@ -152,6 +166,21 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         return self.rowHeight
     }
 
+    func playPauseSong() {
+        switch self.applicationMusicPlayer.playbackState {
+        case .playing:
+            self.applicationMusicPlayer.pause()
+            self.nowPlayingController.playPauseBtn.setImage(UIImage(named: "play"), for: .normal)
+            self.barController.playPauseBtn.setImage(UIImage(named: "play"), for: .normal)
+        case .paused:
+            self.applicationMusicPlayer.play()
+            self.nowPlayingController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
+            self.barController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
+        default:
+            break
+        }
+    }
+
     func playNextSong() {
         self.applicationMusicPlayer.stop()
         self.applicationMusicPlayer.nowPlayingItem = nil
@@ -171,7 +200,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                     self.tableView.reloadData()
                 }
             } else {
-                print(error?.localizedDescription)
+                print(error!.localizedDescription)
             }
         }
         self.applicationMusicPlayer.setQueue(with: [String(firstSong.songId)])
@@ -290,20 +319,13 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         if song.upvotes.contains(id) {
             song.upvotes = song.upvotes.filter {$0 != id}
-            //cell.upvoteButton.setImage(UIImage(named: "arrow-up"), for: .normal)
         } else {
             if song.downvotes.contains(id) {
                 song.downvotes = song.downvotes.filter {$0 != id}
-                //cell.downvoteButton.setImage(UIImage(named: "arrow-down"), for: .normal)
             }
 
             song.upvotes.append(id)
-            //cell.upvoteButton.setImage(UIImage(named: "arrow-up-selected"), for: .normal)
         }
-
-        let votes: Int = song.upvotes.count - song.downvotes.count
-
-        //cell.voteLabel.text = String(votes)
 
         song.saveInBackground { (success, error) in
             if success {
@@ -318,7 +340,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         let id = UIDevice.current.identifierForVendor!.uuidString
 
         guard let cell = sender.superview?.superview as? SongCell else {
-            return // or fatalError() or whatever
+            return
         }
 
         let indexPath = tableView.indexPath(for: cell)
@@ -327,20 +349,13 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         if song.downvotes.contains(id) {
             song.downvotes = song.downvotes.filter {$0 != id}
-            //cell.downvoteButton.setImage(UIImage(named: "arrow-down"), for: .normal)
         } else {
             if song.upvotes.contains(id) {
                 song.upvotes = song.upvotes.filter {$0 != id}
-                //cell.upvoteButton.setImage(UIImage(named: "arrow-up"), for: .normal)
             }
 
             song.downvotes.append(id)
-            //cell.downvoteButton.setImage(UIImage(named: "arrow-down-selected"), for: .normal)
         }
-
-        //let votes: Int = song.upvotes.count - song.downvotes.count
-
-        //cell.voteLabel.text = String(votes)
 
         song.saveInBackground { (success, error) in
             if success {
