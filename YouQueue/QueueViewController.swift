@@ -84,16 +84,16 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
             NotificationCenter.default.addObserver(
                 self,
-                selector: #selector(systemSongDidChange(_:)),
-                name: .MPMusicPlayerControllerNowPlayingItemDidChange,
+                selector: #selector(playbackStateDidChange(_:)),
+                name: .MPMusicPlayerControllerPlaybackStateDidChange,
                 object: applicationMusicPlayer
             )
 
             NotificationCenter.default.addObserver(
                 self,
-                selector: #selector(playbackStateDidChange(_:)),
-                name: .MPMusicPlayerControllerPlaybackStateDidChange,
-                object: applicationMusicPlayer
+                selector: #selector(appDidBecomeActive(_:)),
+                name: UIApplication.didBecomeActiveNotification,
+                object: nil
             )
         }
     }
@@ -117,26 +117,25 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         self.tableView.reloadData()
     }
 
+    @objc func appDidBecomeActive(_ notification: Notification) {
+        self.fetchData()
+    }
+
     @objc func playbackStateDidChange(_ notification: Notification) {
         switch self.applicationMusicPlayer.playbackState {
         case .stopped:
             if self.songs.count > 0 {
-                self.nowPlayingController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
-                self.barController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
                 self.playNextSong()
             } else {
-                self.nowPlayingController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
-                self.barController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
+                self.nowPlayingController.playPauseBtn.setImage(UIImage(named: "play"), for: .normal)
+                self.barController.playPauseBtn.setImage(UIImage(named: "play"), for: .normal)
             }
         case .playing:
-            self.nowPlayingController.playPauseBtn.setImage(UIImage(named: "play"), for: .normal)
-            self.barController.playPauseBtn.setImage(UIImage(named: "play"), for: .normal)
+            self.nowPlayingController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
+            self.barController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
         default:
             break
         }
-    }
-
-    @objc func systemSongDidChange(_ notification: Notification) {
     }
 
     func fetchData() {
@@ -153,8 +152,10 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
 
                 self.tableView.reloadData()
 
-                self.playNextSong()
-
+                if self.host && self.applicationMusicPlayer.playbackState != .playing &&
+                    self.applicationMusicPlayer.playbackState != .paused {
+                    self.playNextSong()
+                }
                 // let range = NSMakeRange(0, self.tableView.numberOfSections)
                 // let sections = NSIndexSet(indexesIn: range)
                 // self.tableView.reloadSections(sections as IndexSet, with: .automatic)
@@ -170,12 +171,8 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         switch self.applicationMusicPlayer.playbackState {
         case .playing:
             self.applicationMusicPlayer.pause()
-            self.nowPlayingController.playPauseBtn.setImage(UIImage(named: "play"), for: .normal)
-            self.barController.playPauseBtn.setImage(UIImage(named: "play"), for: .normal)
         case .paused:
             self.applicationMusicPlayer.play()
-            self.nowPlayingController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
-            self.barController.playPauseBtn.setImage(UIImage(named: "pause"), for: .normal)
         default:
             break
         }
@@ -254,7 +251,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
                         for i in 0...self.songs.count-1 {
                             let newRow = self.songs.index(of: oldsongs[i])
                             self.tableView.moveRow(at: IndexPath(item: 0, section: i),
-                                                   to: IndexPath(item: 0, section: newRow!))
+                                                       to: IndexPath(item: 0, section: newRow!))
                         }
                         self.tableView.endUpdates()
                         CATransaction.commit()
@@ -304,6 +301,7 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             }
         })
     }
+    
 
     @IBAction func upvoteSong(_ sender: UIButton) {
 

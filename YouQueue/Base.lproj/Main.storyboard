@@ -466,26 +466,13 @@
                                     <constraint firstAttribute="height" constant="270" id="uy7-Dh-Ueq"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Playing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMC-Xn-FtW" customClass="MarqueeLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Playing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMC-Xn-FtW">
                                 <rect key="frame" x="67" y="390" width="240" height="34"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="marqueeType">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="scrollDuration">
-                                        <real key="value" value="8"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="scrollRate">
-                                        <real key="value" value="0.0"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="tapToScroll" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="holdScrolling" value="NO"/>
-                                </userDefinedRuntimeAttributes>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAx-t9-cdT" customClass="MarqueeLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="----" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EAx-t9-cdT">
                                 <rect key="frame" x="67" y="425.5" width="240" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -567,7 +554,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not Playing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jT8-jE-lry">
-                                <rect key="frame" x="66" y="21.5" width="88" height="21"/>
+                                <rect key="frame" x="66" y="21.5" width="247" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -596,6 +583,7 @@
                         <constraints>
                             <constraint firstItem="jT8-jE-lry" firstAttribute="leading" secondItem="lAs-dC-HTc" secondAttribute="trailing" constant="8" id="11z-q0-GXo"/>
                             <constraint firstItem="lAs-dC-HTc" firstAttribute="leading" secondItem="bIh-p8-Cty" secondAttribute="leading" constant="8" id="3qT-ks-GQP"/>
+                            <constraint firstItem="QjV-3y-muD" firstAttribute="leading" secondItem="jT8-jE-lry" secondAttribute="trailing" constant="8" id="5gZ-cs-dwe"/>
                             <constraint firstItem="bIh-p8-Cty" firstAttribute="trailing" secondItem="QjV-3y-muD" secondAttribute="trailing" constant="16" id="63b-vj-KTl"/>
                             <constraint firstItem="bIh-p8-Cty" firstAttribute="bottom" secondItem="QjV-3y-muD" secondAttribute="bottom" constant="14" id="COY-3p-kpF"/>
                             <constraint firstItem="lAs-dC-HTc" firstAttribute="centerY" secondItem="jT8-jE-lry" secondAttribute="centerY" id="CUr-lh-rBS"/>
@@ -639,7 +627,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oy8-dz-Svg">
-                                            <rect key="frame" x="95.5" y="8" width="44.5" height="21"/>
+                                            <rect key="frame" x="95.5" y="8" width="263.5" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -651,18 +639,21 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zc-Hp-eUL">
-                                            <rect key="frame" x="95.5" y="31" width="38" height="18"/>
+                                            <rect key="frame" x="95.5" y="31" width="263.5" height="18"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="oy8-dz-Svg" secondAttribute="trailing" constant="16" id="3RS-P1-uMZ"/>
                                         <constraint firstItem="2Zc-Hp-eUL" firstAttribute="top" secondItem="2AU-cA-HEk" secondAttribute="topMargin" constant="20" id="6Dg-ar-AHt"/>
                                         <constraint firstItem="p5j-59-B6u" firstAttribute="leading" secondItem="2AU-cA-HEk" secondAttribute="leading" id="HTS-I8-mzJ"/>
                                         <constraint firstItem="2Zc-Hp-eUL" firstAttribute="leading" secondItem="p5j-59-B6u" secondAttribute="trailing" constant="8" id="WjF-yq-RRk"/>
                                         <constraint firstItem="p5j-59-B6u" firstAttribute="top" secondItem="2AU-cA-HEk" secondAttribute="top" id="Zgo-ef-EgN"/>
                                         <constraint firstItem="oy8-dz-Svg" firstAttribute="top" secondItem="2AU-cA-HEk" secondAttribute="top" constant="8" id="eku-Sk-Ha8"/>
+                                        <constraint firstAttribute="bottom" secondItem="p5j-59-B6u" secondAttribute="bottom" id="nm1-N6-Qzb"/>
+                                        <constraint firstAttribute="trailing" secondItem="2Zc-Hp-eUL" secondAttribute="trailing" constant="16" id="qf7-qH-XuP"/>
                                         <constraint firstItem="oy8-dz-Svg" firstAttribute="leading" secondItem="p5j-59-B6u" secondAttribute="trailing" constant="8" id="sfa-ct-6c6"/>
                                         <constraint firstAttribute="bottom" secondItem="p5j-59-B6u" secondAttribute="bottom" id="uxn-vF-ESF"/>
                                     </constraints>
@@ -690,7 +681,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C4r-rC-1Y6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5841" y="822"/>
+            <point key="canvasLocation" x="5840.8000000000002" y="821.73913043478262"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6BC-B6-X2P">

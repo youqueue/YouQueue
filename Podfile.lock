@@ -11,7 +11,6 @@ PODS:
   - Bolts/Tasks (1.9.0)
   - DeckTransition (2.1.0)
   - LNPopupController (2.7.1)
-  - MarqueeLabel (4.0.0)
   - Parse (1.17.2):
     - Parse/Core (= 1.17.2)
   - Parse/Core (1.17.2):
@@ -31,7 +30,6 @@ DEPENDENCIES:
   - AlamofireImage
   - DeckTransition (~> 2.0)
   - LNPopupController
-  - MarqueeLabel
   - Parse
   - ParseLiveQuery
   - PMSuperButton
@@ -47,7 +45,6 @@ SPEC REPOS:
     - Bolts-Swift
     - DeckTransition
     - LNPopupController
-    - MarqueeLabel
     - Parse
     - ParseLiveQuery
     - PMSuperButton
@@ -63,7 +60,6 @@ SPEC CHECKSUMS:
   Bolts-Swift: 650d72e8017721b1a6bbe43d542c4578f8e5ba6f
   DeckTransition: ca707456e3d83928c895fed6f458cbf68c5cac84
   LNPopupController: 62358836cc6bfebb75880198a6b249b3bdd59367
-  MarqueeLabel: b55b26e690b6ad41faedd95cbf5eae6f1d1735b4
   Parse: 3b31a3dd1777b07ee7f0caee32fafbff544483a5
   ParseLiveQuery: 84cce90a2ee3af04ed51249bc1734c4a6dbe09ab
   PMSuperButton: 2bef6f8659a5df969a69887f496ef309480c65eb
@@ -72,6 +68,6 @@ SPEC CHECKSUMS:
   SwiftVideoBackground: ebcc843d4cbcfc520e42472dad80925a6433da06
   TextFieldEffects: 7d372f58aeaf9acd9626bbf962680aef926b085d
 
-PODFILE CHECKSUM: e4cb9bf4193d9fc0be61655525d38f5d9649cf95
+PODFILE CHECKSUM: c9c6ece0a8e63d7233ea913ac7dd7fecdef382c3
 
 COCOAPODS: 1.5.3
