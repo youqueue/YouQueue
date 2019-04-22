@@ -60,16 +60,16 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         subscribeToServer()
         fetchData()
 
-        nowPlayingController = (storyboard?.instantiateViewController(withIdentifier: "nowPlaying")
-            as! NowPlayingViewController)
-        nowPlayingController.queueController = self
-
-        barController = (storyboard?.instantiateViewController(withIdentifier: "nowPlayingBar")
-            as! NowPlayingBarViewController)
-        barController.queueController = self
-        popupBar.customBarViewController = barController
-
         if host {
+            nowPlayingController = (storyboard?.instantiateViewController(withIdentifier: "nowPlaying")
+                as! NowPlayingViewController)
+            nowPlayingController.queueController = self
+
+            barController = (storyboard?.instantiateViewController(withIdentifier: "nowPlayingBar")
+                as! NowPlayingBarViewController)
+            barController.queueController = self
+            popupBar.customBarViewController = barController
+
             DispatchQueue.main.async {
                 self.presentPopupBar(withContentViewController: self.nowPlayingController,
                                      animated: true, completion: nil)
@@ -185,6 +185,8 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
         let unplayedSongs = self.songs.filter { $0.played == false }
 
         if unplayedSongs.count == 0 {
+            self.barController.setSong(song: nil)
+            self.nowPlayingController.setSong(song: nil)
             return
         }
 
@@ -224,6 +226,11 @@ class QueueViewController: UIViewController, UITableViewDataSource, UITableViewD
             case .created(let object):
                 self.songs.append(object as! Song)
                 self.songs.sort(by: self.sortSongs)
+
+                if self.host && self.songs.count == 1 && self.applicationMusicPlayer.playbackState != .playing {
+                    self.playNextSong()
+                }
+
 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()

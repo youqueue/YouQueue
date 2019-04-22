@@ -50,7 +50,16 @@ class NowPlayingBarViewController: LNPopupCustomBarViewController {
     }
 
     func setSong(song: Song?) {
-        self.albumArt.af_setImage(withURL: URL(string: song!.albumArt)!)
-        self.titleLabel.text = song?.name
+        if song != nil {
+            DispatchQueue.main.async {
+                self.albumArt.af_setImage(withURL: URL(string: song!.albumArt)!)
+                self.titleLabel.text = song?.name
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.titleLabel.text = "Not Playing"
+                self.albumArt.image = UIImage(named: "Logo_Music_App_1BW")
+            }
+        }
     }
 }

@@ -53,13 +53,17 @@ class NowPlayingViewController: UIViewController {
     func setSong(song: Song?) {
 
         if song != nil {
-            self.albumArt.af_setImage(withURL: get1000x1000AlbumArt(url: song!.albumArt))
-            self.titleLabel.text = song?.name
-            self.albumLabel.text = song?.artist
+            DispatchQueue.main.async {
+                self.albumArt.af_setImage(withURL: self.get1000x1000AlbumArt(url: song!.albumArt))
+                self.titleLabel.text = song?.name
+                self.albumLabel.text = song?.artist
+            }
         } else {
-            self.titleLabel.text = "Not Playing"
-            self.albumLabel.text = ""
-            self.albumArt.image = UIImage()
+            DispatchQueue.main.async {
+                self.titleLabel.text = "Not Playing"
+                self.albumLabel.text = "----"
+                self.albumArt.image = UIImage(named: "Logo_Music_App_1BW")
+            }
         }
     }
 
